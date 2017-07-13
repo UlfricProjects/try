@@ -13,7 +13,7 @@ public class Try {
 		}
 	}
 
-	public static void toRun(IoCheckedRunnable runnable) {
+	public static void toRunIo(IoCheckedRunnable runnable) {
 		try {
 			runnable.run();
 		} catch (IOException thrown) {

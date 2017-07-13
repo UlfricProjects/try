@@ -29,17 +29,17 @@ class TryTest {
 	}
 
 	@Test
-	void testToRunIoCheckedRunnableNoExceptions() {
+	void testToIoRunIoCheckedRunnableNoExceptions() {
 		boolean[] ran = new boolean[1];
 		IoCheckedRunnable run = () -> ran[0] = true;
-		Try.toRun(run);
+		Try.toRunIo(run);
 		Truth.assertThat(ran[0]).isTrue();
 	}
 
 	@Test
-	void testToRunIoCheckedRunnableRethrowsCheckedIoException() {
+	void testToIoRunIoCheckedRunnableRethrowsCheckedIoException() {
 		IoCheckedRunnable run = () -> { throw new IOException(); };
-		Assertions.assertThrows(UncheckedIOException.class, () -> Try.toRun(run));
+		Assertions.assertThrows(UncheckedIOException.class, () -> Try.toRunIo(run));
 	}
 
 	@Test
