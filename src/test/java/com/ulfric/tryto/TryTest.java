@@ -32,6 +32,18 @@ class TryTest {
 	}
 
 	@Test
+	void testToGetNoExceptions() {
+		CheckedSupplier<Boolean> get = () -> true;
+		Truth.assertThat(Try.toGet(get)).isTrue();
+	}
+
+	@Test
+	void testToGetRethrowsCheckedException() {
+		CheckedSupplier<?> get = () -> { throw new Exception(); };
+		Veracity.assertThat(() -> Try.toGet(get)).doesThrow(RuntimeException.class);
+	}
+
+	@Test
 	void testToIoRunIoNoExceptions() {
 		boolean[] ran = new boolean[1];
 		IoCheckedRunnable run = () -> ran[0] = true;

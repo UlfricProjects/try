@@ -14,6 +14,14 @@ public class Try {
 		}
 	}
 
+	public static <T> T toGet(CheckedSupplier<T> supplier) {
+		try {
+			return supplier.get();
+		} catch (Exception thrown) {
+			throw new RuntimeException(thrown);
+		}
+	}
+
 	public static void toRunIo(IoCheckedRunnable runnable) {
 		try {
 			runnable.run();
