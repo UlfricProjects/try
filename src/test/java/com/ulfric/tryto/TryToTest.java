@@ -1,8 +1,6 @@
 package com.ulfric.tryto;
 
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 
 import com.google.common.truth.Truth;
@@ -14,7 +12,6 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.lang.reflect.Constructor;
 
-@RunWith(JUnitPlatform.class)
 class TryToTest {
 
 	@Test
